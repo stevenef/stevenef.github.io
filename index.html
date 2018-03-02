@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Average Peak Indicator</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <style>
+        .row {
+            margin-bottom: 6px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,9 +29,7 @@
                     <button id="n1m" type="button" class="btn btn-secondary btn-block">- 1</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n1" id="n1" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n1">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n1p" type="button" class="btn btn-success btn-block">+ 1</button>
@@ -38,9 +40,7 @@
                     <button id="n2m" type="button" class="btn btn-secondary btn-block">- 2</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n2" id="n2" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n2">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n2p" type="button" class="btn btn-success btn-block">+ 2</button>
@@ -51,9 +51,7 @@
                     <button id="n3m" type="button" class="btn btn-secondary btn-block">- 3</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n3" id="n3" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n3">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n3p" type="button" class="btn btn-success btn-block">+ 3</button>
@@ -64,9 +62,7 @@
                     <button id="n4m" type="button" class="btn btn-secondary btn-block">- 4</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n4" id="n4" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n4">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n4p" type="button" class="btn btn-success btn-block">+ 4</button>
@@ -77,9 +73,7 @@
                     <button id="n5m" type="button" class="btn btn-secondary btn-block">- 5</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n5" id="n5" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n5">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n5p" type="button" class="btn btn-success btn-block">+ 5</button>
@@ -90,9 +84,7 @@
                     <button id="n6m" type="button" class="btn btn-secondary btn-block">- 6</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n6" id="n6" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n6">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n6p" type="button" class="btn btn-success btn-block">+ 6</button>
@@ -103,9 +95,7 @@
                     <button id="n7m" type="button" class="btn btn-secondary btn-block">- 7</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n7" id="n7" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n7">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n7p" type="button" class="btn btn-success btn-block">+ 7</button>
@@ -116,9 +106,7 @@
                     <button id="n8m" type="button" class="btn btn-secondary btn-block">- 8</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n8" id="n8" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n8">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n8p" type="button" class="btn btn-success btn-block">+ 8</button>
@@ -129,9 +117,7 @@
                     <button id="n9m" type="button" class="btn btn-secondary btn-block">- 9</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n9" id="n9" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n9">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n9p" type="button" class="btn btn-success btn-block">+ 9</button>
@@ -142,9 +128,7 @@
                     <button id="n10m" type="button" class="btn btn-secondary btn-block">- 10</button>
                 </div>
                 <div class="col-md-8 col-4">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="n10" id="n10" value="0" />
-                    </div>
+                    <button type="button" class="btn btn-light btn-block" id="n10">0</button>
                 </div>
                 <div class="col-md-2 col-4">
                     <button id="n10p" type="button" class="btn btn-success btn-block">+ 10</button>
@@ -169,12 +153,12 @@
             });
         
             function plus(id) {
-                var val = Number($("#n"+id).val()) + 1;
+                var val = Number($("#n"+id).html()) + 1;
                 anz = $("#anz").html();
                 sum = Number($("#sum").html());
                 anz++;
                 sum = sum + id;
-                $("#n"+id).val(val);
+                $("#n"+id).html(val);
                 $("#anz").html(anz);
                 $("#sum").html(sum);
                 $("#avg").html((sum/anz).toFixed(2));
@@ -182,7 +166,7 @@
             }
 
             function minus(id) {
-                var val = Number($("#n"+id).val()) -1;
+                var val = Number($("#n"+id).html()) -1;
                 anz = $("#anz").html();
                 sum = Number($("#sum").html());
                 if(undefined == val || val < 0) {
@@ -192,7 +176,7 @@
                     sum = sum - id;
                 }
                 
-                $("#n"+id).val(val);
+                $("#n"+id).html(val);
                 $("#anz").html(anz);
                 $("#sum").html(sum);
                 $("#avg").html((sum/anz).toFixed(2));
@@ -204,7 +188,7 @@
                 $("#sum").html(0);
                 $("#avg").html(0);
                 $.each([1,2,3,4,5,6,7,8,9,10], function(i,v) {
-                    $("#n"+v).val(0);
+                    $("#n"+v).html(0);
                 });
             });
             </script>
