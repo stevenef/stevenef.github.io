@@ -35,13 +35,15 @@
             i +
             '" class="ui-slider-handle"></div></div>';
           html2 =
-            '<div class="slider"><input type="range" name="slider-' +
+            '<div class="slider"><label>' +
+            i +
+            '</label><input type="range" name="slider-' +
             i +
             '" id="slider-' +
             i +
             '" multiplicator="' +
             i +
-            '" value="0" min="0" max="20" step="1"></div>';
+            '" value="0" min="0" max="20" step="1"><span class="anz"></span></div>';
           $(".test").append(html2);
         }
 
