@@ -17,24 +17,70 @@
         text-align: center;
         line-height: 1.6em;
       }
+      .slider > input {
+        width: 100%;
+        height: 40px;
+      }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
       $(function () {
-        for (let i = 1; i < 12; i++) {
+        for (let i = 1; i < 11; i++) {
           //console.log(i);
-          $(".test").append(
+          html1 =
             '<div id="slider' +
-              i +
-              '"><div id="custom-handle' +
-              i +
-              '" class="ui-slider-handle"></div></div>'
-          );
+            i +
+            '"><div id="custom-handle' +
+            i +
+            '" class="ui-slider-handle"></div></div>';
+          html2 =
+            '<div class="slider"><input type="range" name="slider-' +
+            i +
+            '" id="slider-' +
+            i +
+            '" multiplicator="' +
+            i +
+            '" value="0" min="0" max="20" step="1"></div>';
+          $(".test").append(html2);
         }
 
         var data = {};
 
+        function anzeige(data) {
+          var anz = $.map(data, function (v, i, o) {
+            return v;
+          });
+
+          var summe = $.map(data, function (v, i, o) {
+            return v * i;
+          });
+
+          // Anzahl der Stimmen
+          stimmen = eval(anz.join("+"));
+          console.log(stimmen);
+
+          // Anzahl der Gesamt
+          gesamt = eval(summe.join("+"));
+          console.log(gesamt);
+
+          $("#durchschnitt").text(gesamt / stimmen);
+          console.log(gesamt / stimmen);
+        }
+
+        // mobile Version
+        $("input").each(function (index, value) {
+          console.log(index + 1, value);
+          $("#slider-" + (index + 1)).on("change", function () {
+            data[$(this).attr("multiplicator")] = $(this).val();
+            // console.log($(this).val());
+            // console.log($(this).attr("multiplicator"));
+            console.log(data);
+            anzeige(data);
+          });
+        });
+
+        // NICHT mobile
         $(".ui-slider-handle").each(function (index, value) {
           // console.log(index, value);
           $("#slider" + index).slider({
@@ -49,24 +95,7 @@
               $("#custom-handle" + index).text(ui.value);
               data[index] = ui.value;
 
-              var anz = $.map(data, function (v, i, o) {
-                return v;
-              });
-
-              var summe = $.map(data, function (v, i, o) {
-                return v * i;
-              });
-
-              // Anzahl der Stimmen
-              stimmen = eval(anz.join("+"));
-              console.log(stimmen);
-
-              // Anzahl der Gesamt
-              gesamt = eval(summe.join("+"));
-              console.log(gesamt);
-
-              $("#durchschnitt").text(gesamt / stimmen);
-              console.log(gesamt / stimmen);
+              anzeige(data);
             },
           });
         });
