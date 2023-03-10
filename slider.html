@@ -43,7 +43,9 @@
             i +
             '" multiplicator="' +
             i +
-            '" value="0" min="0" max="20" step="1"><span class="anz"></span></div>';
+            '" value="0" min="0" max="20" step="1"><span id="anz-' +
+            i +
+            '"></span></div>';
           $(".test").append(html2);
         }
 
@@ -77,6 +79,7 @@
             data[$(this).attr("multiplicator")] = $(this).val();
             // console.log($(this).val());
             // console.log($(this).attr("multiplicator"));
+            $("#anz-" + $(this).attr("multiplicator")).text($(this).val());
             console.log(data);
             anzeige(data);
           });
