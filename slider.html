@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jQuery UI Slider - Range with fixed maximum</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <style>
+      #custom-handle {
+        width: 3em;
+        height: 1.6em;
+        top: 50%;
+        margin-top: -0.8em;
+        text-align: center;
+        line-height: 1.6em;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        for (let i = 1; i < 12; i++) {
+          //console.log(i);
+          $(".test").append(
+            '<div id="slider' +
+              i +
+              '"><div id="custom-handle' +
+              i +
+              '" class="ui-slider-handle"></div></div>'
+          );
+        }
+
+        var data = {};
+
+        $(".ui-slider-handle").each(function (index, value) {
+          // console.log(index, value);
+          $("#slider" + index).slider({
+            range: "max",
+            min: 0,
+            max: 10,
+            value: 0,
+            create: function () {
+              $("#custom-handle" + index).text($(this).slider("value"));
+            },
+            slide: function (event, ui) {
+              $("#custom-handle" + index).text(ui.value);
+              data[index] = ui.value;
+
+              var anz = $.map(data, function (v, i, o) {
+                return v;
+              });
+
+              var summe = $.map(data, function (v, i, o) {
+                return v * i;
+              });
+
+              // Anzahl der Stimmen
+              stimmen = eval(anz.join("+"));
+              console.log(stimmen);
+
+              // Anzahl der Gesamt
+              gesamt = eval(summe.join("+"));
+              console.log(gesamt);
+
+              $("#durchschnitt").text(gesamt / stimmen);
+              console.log(gesamt / stimmen);
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="header">Durchschnitt = <span id="durchschnitt"></span></div>
+    <div class="test"></div>
+  </body>
+</html>
