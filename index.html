@@ -1,281 +1,280 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
-    />
-    <title>Average Peak Indicator</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <style>
-      .row {
-        margin-bottom: 12px;
-      }
-      input[type="button"]{ touch-action: manipulation; }
-    </style>
-    <script>
-      document.addEventListener(
-        "touchmove",
-        (event) => event.scale !== 1 && event.preventDefault(),
-        { passive: false }
-      );
-    </script>
-  </head>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<title>Average Peak Indicator</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style>
+			.row {
+				margin-bottom: 12px;
+			}
+			input[type='button'] {
+				touch-action: manipulation;
+			}
+		</style>
+		<script>
+			document.addEventListener(
+				'touchmove',
+				(event) => event.scale !== 1 && event.preventDefault(),
+				{ passive: false }
+			)
+		</script>
+	</head>
 
-  <body>
-    <main>
-      <div class="container">
-        <h3>Average Peak Indicator</h3>
-        <div class="text-center">
-          <h2>
-            <span class="badge badge-primary" id="sum"></span> /
-            <span class="badge badge-primary" id="anz"></span> =
-            <span class="badge badge-primary" id="avg"></span>
-          </h2>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n1m" type="button" class="btn btn-secondary btn-block">
-              - 1
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n1">0</span><span> x 1 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n1p" type="button" class="btn btn-success btn-block">
-              + 1
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n2m" type="button" class="btn btn-secondary btn-block">
-              - 2
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n2">0</span><span> x 2 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n2p" type="button" class="btn btn-success btn-block">
-              + 2
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n3m" type="button" class="btn btn-secondary btn-block">
-              - 3
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n3">0</span><span> x 3 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n3p" type="button" class="btn btn-success btn-block">
-              + 3
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n4m" type="button" class="btn btn-secondary btn-block">
-              - 4
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n4">0</span><span> x 4 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n4p" type="button" class="btn btn-success btn-block">
-              + 4
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n5m" type="button" class="btn btn-secondary btn-block">
-              - 5
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n5">0</span><span> x 5 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n5p" type="button" class="btn btn-success btn-block">
-              + 5
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n6m" type="button" class="btn btn-secondary btn-block">
-              - 6
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n6">0</span><span> x 6 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n6p" type="button" class="btn btn-success btn-block">
-              + 6
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n7m" type="button" class="btn btn-secondary btn-block">
-              - 7
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n7">0</span><span> x 7 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n7p" type="button" class="btn btn-success btn-block">
-              + 7
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n8m" type="button" class="btn btn-secondary btn-block">
-              - 8
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n8">0</span><span> x 8 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n8p" type="button" class="btn btn-success btn-block">
-              + 8
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n9m" type="button" class="btn btn-secondary btn-block">
-              - 9
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n9">0</span><span> x 9 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n9p" type="button" class="btn btn-success btn-block">
-              + 9
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
-            <button id="n10m" type="button" class="btn btn-secondary btn-block">
-              - 10
-            </button>
-          </div>
-          <div class="col-md-8 col-6">
-            <button type="button" class="btn btn-light btn-block">
-              <span id="n10">0</span><span> x 10 Punkt(e)</span>
-            </button>
-          </div>
-          <div class="col-md-2 col-3">
-            <button id="n10p" type="button" class="btn btn-success btn-block">
-              + 10
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <button id="reset" type="button" class="btn btn-danger btn-block">
-            Reset
-          </button>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <script
-        language="javascript"
-        type="text/javascript"
-        src="js/jquery-3.3.1.min.js"
-      ></script>
-      <script
-        language="javascript"
-        type="text/javascript"
-        src="js/bootstrap.min.js"
-      ></script>
-      <script language="javascript" type="text/javascript">
-        $(document).ready(function () {
-          $.each([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function (i, v) {
-            $("#n" + v + "p").click(function () {
-              plus(v);
-            });
-            $("#n" + v + "m").click(function () {
-              minus(v);
-            });
-          });
-        });
+	<body>
+		<main>
+			<div class="container">
+				<h3>Average Peak Indicator</h3>
+				<div class="text-center">
+					<h2>
+						<span class="badge badge-primary" id="sum"></span> /
+						<span class="badge badge-primary" id="anz"></span> =
+						<span class="badge badge-primary" id="avg"></span>
+					</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n1m" type="button" class="btn btn-secondary btn-block">
+							- 1
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n1">0</span><span> x 1 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n1p" type="button" class="btn btn-success btn-block">
+							+ 1
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n2m" type="button" class="btn btn-secondary btn-block">
+							- 2
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n2">0</span><span> x 2 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n2p" type="button" class="btn btn-success btn-block">
+							+ 2
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n3m" type="button" class="btn btn-secondary btn-block">
+							- 3
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n3">0</span><span> x 3 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n3p" type="button" class="btn btn-success btn-block">
+							+ 3
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n4m" type="button" class="btn btn-secondary btn-block">
+							- 4
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n4">0</span><span> x 4 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n4p" type="button" class="btn btn-success btn-block">
+							+ 4
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n5m" type="button" class="btn btn-secondary btn-block">
+							- 5
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n5">0</span><span> x 5 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n5p" type="button" class="btn btn-success btn-block">
+							+ 5
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n6m" type="button" class="btn btn-secondary btn-block">
+							- 6
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n6">0</span><span> x 6 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n6p" type="button" class="btn btn-success btn-block">
+							+ 6
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n7m" type="button" class="btn btn-secondary btn-block">
+							- 7
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n7">0</span><span> x 7 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n7p" type="button" class="btn btn-success btn-block">
+							+ 7
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n8m" type="button" class="btn btn-secondary btn-block">
+							- 8
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n8">0</span><span> x 8 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n8p" type="button" class="btn btn-success btn-block">
+							+ 8
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n9m" type="button" class="btn btn-secondary btn-block">
+							- 9
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n9">0</span><span> x 9 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n9p" type="button" class="btn btn-success btn-block">
+							+ 9
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-3">
+						<button id="n10m" type="button" class="btn btn-secondary btn-block">
+							- 10
+						</button>
+					</div>
+					<div class="col-md-8 col-6">
+						<button type="button" class="btn btn-light btn-block">
+							<span id="n10">0</span><span> x 10 Punkt(e)</span>
+						</button>
+					</div>
+					<div class="col-md-2 col-3">
+						<button id="n10p" type="button" class="btn btn-success btn-block">
+							+ 10
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<button id="reset" type="button" class="btn btn-danger btn-block">
+						Reset
+					</button>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<script
+				language="javascript"
+				type="text/javascript"
+				src="js/jquery-3.3.1.min.js"
+			></script>
+			<script
+				language="javascript"
+				type="text/javascript"
+				src="js/bootstrap.min.js"
+			></script>
+			<script language="javascript" type="text/javascript">
+				$(document).ready(function () {
+					$.each([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function (i, v) {
+						$('#n' + v + 'p').click(function () {
+							plus(v)
+						})
+						$('#n' + v + 'm').click(function () {
+							minus(v)
+						})
+					})
+				})
 
-        function plus(id) {
-          var val = Number($("#n" + id).html()) + 1;
-          anz = $("#anz").html();
-          sum = Number($("#sum").html());
-          anz++;
-          sum = sum + id;
-          $("#n" + id).html(val);
-          $("#anz").html(anz);
-          $("#sum").html(sum);
-          $("#avg").html((sum / anz).toFixed(2));
-          console.log(anz);
-        }
+				function plus(id) {
+					var val = Number($('#n' + id).html()) + 1
+					anz = $('#anz').html()
+					sum = Number($('#sum').html())
+					anz++
+					sum = sum + id
+					$('#n' + id).html(val)
+					$('#anz').html(anz)
+					$('#sum').html(sum)
+					$('#avg').html((sum / anz).toFixed(2))
+					console.log(anz)
+				}
 
-        function minus(id) {
-          var val = Number($("#n" + id).html()) - 1;
-          anz = $("#anz").html();
-          sum = Number($("#sum").html());
-          if (undefined == val || val < 0) {
-            val = 0;
-          } else {
-            if (anz > 0) {
-              anz--;
-            }
-            sum = sum - id;
-          }
+				function minus(id) {
+					var val = Number($('#n' + id).html()) - 1
+					anz = $('#anz').html()
+					sum = Number($('#sum').html())
+					if (undefined == val || val < 0) {
+						val = 0
+					} else {
+						if (anz > 0) {
+							anz--
+						}
+						sum = sum - id
+					}
 
-          $("#n" + id).html(val);
-          $("#anz").html(anz);
-          $("#sum").html(sum);
-          $("#avg").html((sum / anz).toFixed(2));
-          console.log(anz);
-        }
+					$('#n' + id).html(val)
+					$('#anz').html(anz)
+					$('#sum').html(sum)
+					$('#avg').html((sum / anz).toFixed(2))
+					console.log(anz)
+				}
 
-        $("#reset").click(function () {
-          $("#anz").html(0);
-          $("#sum").html(0);
-          $("#avg").html(0);
-          $.each([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function (i, v) {
-            $("#n" + v).html(0);
-          });
-        });
-      </script>
-    </footer>
-  </body>
+				$('#reset').click(function () {
+					$('#anz').html(0)
+					$('#sum').html(0)
+					$('#avg').html(0)
+					$.each([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function (i, v) {
+						$('#n' + v).html(0)
+					})
+				})
+			</script>
+		</footer>
+	</body>
 </html>
